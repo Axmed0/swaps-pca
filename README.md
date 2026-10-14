@@ -20,7 +20,7 @@ Methods follow the practitioner research collected in [yieldcurvemonkey/Curvy-CU
 | EUR ESTR | 1 Aug 2019 | 27 Apr 2026 | 1,725 |
 | GBP SONIA | 26 Jun 2014 | 17 Apr 2026 | 2,985 |
 
-- Daily par swap rates at 29 tenors from 1 week to 50 years, supplied as pickled pandas DataFrames. Source: **[add before publishing]**. The analysis uses the nine tenors 1y, 2y, 3y, 5y, 7y, 10y, 15y, 20y and 30y.
+- Daily par swap rates at 29 tenors from 1 week to 50 years, supplied as pickled pandas DataFrames. Source: Bloomberg. The analysis uses the nine tenors 1y, 2y, 3y, 5y, 7y, 10y, 15y, 20y and 30y.
 - No gaps longer than five calendar days and no stale rows. The largest daily moves line up with known events: USD 1y -79.5bp on 13 March 2023, EUR 1y -41.2bp on 15 March 2023, GBP 1y +72.7bp on 26 September 2022.
 - Cross-check against the Bank of England OIS spot curve (fitted zero-coupon rates, 2,599 common days): GBP par rates sit 0.5bp to 2.4bp above the BoE curve on average at 2y, 5y, 10y and 25y, and daily changes have a 0.92 to 0.95 correlation. Par against zero rates and different marking times explain the gap.
 - Loading the pickles uses a restricted unpickler that only allows pandas and numpy classes (`src/load_data.py`).
