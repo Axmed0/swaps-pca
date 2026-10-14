@@ -1,0 +1,1469 @@
+{
+  "single": {
+    "USD": {
+      "start": "2018-04-18",
+      "end": "2026-04-27",
+      "n_days": 2006,
+      "share_pct": [
+        87.1,
+        11.2,
+        1.4,
+        0.3
+      ],
+      "top3_pct": 99.7,
+      "pc1": {
+        "1y": 0.24,
+        "2y": 0.33,
+        "3y": 0.36,
+        "5y": 0.38,
+        "7y": 0.37,
+        "10y": 0.36,
+        "15y": 0.33,
+        "20y": 0.32,
+        "30y": 0.3
+      },
+      "pc2": {
+        "1y": 0.47,
+        "2y": 0.46,
+        "3y": 0.34,
+        "5y": 0.1,
+        "7y": -0.05,
+        "10y": -0.2,
+        "15y": -0.31,
+        "20y": -0.36,
+        "30y": -0.42
+      },
+      "pc3": {
+        "1y": 0.66,
+        "2y": 0.09,
+        "3y": -0.26,
+        "5y": -0.42,
+        "7y": -0.3,
+        "10y": -0.12,
+        "15y": 0.11,
+        "20y": 0.23,
+        "30y": 0.37
+      },
+      "daily_std_bp": {
+        "1y": 4.79,
+        "2y": 5.77,
+        "3y": 5.91,
+        "5y": 5.93,
+        "7y": 5.81,
+        "10y": 5.68,
+        "15y": 5.45,
+        "20y": 5.33,
+        "30y": 5.21
+      },
+      "largest_day": {
+        "date": "2023-03-13",
+        "tenor": "1y",
+        "bp": -79.5
+      },
+      "pc1_peak_tenor": "5y"
+    },
+    "EUR": {
+      "start": "2019-08-02",
+      "end": "2026-04-27",
+      "n_days": 1724,
+      "share_pct": [
+        87.9,
+        10.3,
+        1.4,
+        0.3
+      ],
+      "top3_pct": 99.5,
+      "pc1": {
+        "1y": 0.23,
+        "2y": 0.32,
+        "3y": 0.36,
+        "5y": 0.38,
+        "7y": 0.37,
+        "10y": 0.36,
+        "15y": 0.34,
+        "20y": 0.32,
+        "30y": 0.3
+      },
+      "pc2": {
+        "1y": 0.41,
+        "2y": 0.45,
+        "3y": 0.36,
+        "5y": 0.16,
+        "7y": -0.0,
+        "10y": -0.17,
+        "15y": -0.31,
+        "20y": -0.38,
+        "30y": -0.46
+      },
+      "pc3": {
+        "1y": 0.65,
+        "2y": 0.17,
+        "3y": -0.14,
+        "5y": -0.37,
+        "7y": -0.33,
+        "10y": -0.23,
+        "15y": -0.0,
+        "20y": 0.2,
+        "30y": 0.44
+      },
+      "daily_std_bp": {
+        "1y": 3.5,
+        "2y": 4.53,
+        "3y": 4.74,
+        "5y": 4.81,
+        "7y": 4.7,
+        "10y": 4.63,
+        "15y": 4.45,
+        "20y": 4.35,
+        "30y": 4.32
+      },
+      "largest_day": {
+        "date": "2023-03-15",
+        "tenor": "1y",
+        "bp": -41.2
+      },
+      "pc1_peak_tenor": "5y"
+    },
+    "GBP": {
+      "start": "2014-06-27",
+      "end": "2026-04-17",
+      "n_days": 2984,
+      "share_pct": [
+        88.4,
+        10.2,
+        1.0,
+        0.3
+      ],
+      "top3_pct": 99.6,
+      "pc1": {
+        "1y": 0.21,
+        "2y": 0.3,
+        "3y": 0.33,
+        "5y": 0.36,
+        "7y": 0.36,
+        "10y": 0.36,
+        "15y": 0.36,
+        "20y": 0.35,
+        "30y": 0.34
+      },
+      "pc2": {
+        "1y": 0.46,
+        "2y": 0.48,
+        "3y": 0.39,
+        "5y": 0.15,
+        "7y": -0.01,
+        "10y": -0.17,
+        "15y": -0.28,
+        "20y": -0.34,
+        "30y": -0.4
+      },
+      "pc3": {
+        "1y": 0.61,
+        "2y": 0.14,
+        "3y": -0.19,
+        "5y": -0.39,
+        "7y": -0.35,
+        "10y": -0.22,
+        "15y": 0.03,
+        "20y": 0.22,
+        "30y": 0.45
+      },
+      "daily_std_bp": {
+        "1y": 3.75,
+        "2y": 4.74,
+        "3y": 5.03,
+        "5y": 5.07,
+        "7y": 5.09,
+        "10y": 5.16,
+        "15y": 5.14,
+        "20y": 5.14,
+        "30y": 5.19
+      },
+      "largest_day": {
+        "date": "2022-09-26",
+        "tenor": "1y",
+        "bp": 72.7
+      },
+      "pc1_peak_tenor": "10y"
+    }
+  },
+  "rolling": {
+    "USD": {
+      "pc2_max_pct": 12.7,
+      "pc2_max_date": "2022-03-03",
+      "pc2_median_pct": 8.0,
+      "pc1_min_pct": 85.0,
+      "pc1_min_date": "2022-02-25",
+      "pc2_latest_pct": 9.0
+    },
+    "EUR": {
+      "pc2_max_pct": 16.5,
+      "pc2_max_date": "2022-02-28",
+      "pc2_median_pct": 8.6,
+      "pc1_min_pct": 81.8,
+      "pc1_min_date": "2022-02-28",
+      "pc2_latest_pct": 11.5
+    },
+    "GBP": {
+      "pc2_max_pct": 19.7,
+      "pc2_max_date": "2021-11-09",
+      "pc2_median_pct": 6.5,
+      "pc1_min_pct": 78.6,
+      "pc1_min_date": "2021-11-09",
+      "pc2_latest_pct": 11.4
+    }
+  },
+  "global": {
+    "start": "2019-08-01",
+    "end": "2026-04-17",
+    "n_weeks": 350,
+    "share_pct": [
+      69.6,
+      12.9,
+      7.9,
+      5.2,
+      2.0
+    ],
+    "ccy_variance_explained_by_first_k_global_pct": {
+      "1": {
+        "USD": 63.8,
+        "EUR": 70.9,
+        "GBP": 74.0
+      },
+      "2": {
+        "USD": 84.6,
+        "EUR": 71.7,
+        "GBP": 87.0
+      },
+      "3": {
+        "USD": 93.9,
+        "EUR": 79.1,
+        "GBP": 93.9
+      },
+      "4": {
+        "USD": 95.3,
+        "EUR": 94.9,
+        "GBP": 96.1
+      }
+    },
+    "loadings": {
+      "G1": {
+        "USD 1y": 0.15,
+        "USD 2y": 0.19,
+        "USD 3y": 0.21,
+        "USD 5y": 0.21,
+        "USD 7y": 0.21,
+        "USD 10y": 0.2,
+        "USD 15y": 0.19,
+        "USD 20y": 0.18,
+        "USD 30y": 0.16,
+        "EUR 1y": 0.11,
+        "EUR 2y": 0.16,
+        "EUR 3y": 0.17,
+        "EUR 5y": 0.18,
+        "EUR 7y": 0.18,
+        "EUR 10y": 0.18,
+        "EUR 15y": 0.17,
+        "EUR 20y": 0.16,
+        "EUR 30y": 0.15,
+        "GBP 1y": 0.17,
+        "GBP 2y": 0.22,
+        "GBP 3y": 0.23,
+        "GBP 5y": 0.24,
+        "GBP 7y": 0.23,
+        "GBP 10y": 0.23,
+        "GBP 15y": 0.22,
+        "GBP 20y": 0.21,
+        "GBP 30y": 0.2
+      },
+      "G2": {
+        "USD 1y": 0.31,
+        "USD 2y": 0.34,
+        "USD 3y": 0.32,
+        "USD 5y": 0.28,
+        "USD 7y": 0.24,
+        "USD 10y": 0.21,
+        "USD 15y": 0.18,
+        "USD 20y": 0.17,
+        "USD 30y": 0.15,
+        "EUR 1y": 0.07,
+        "EUR 2y": 0.06,
+        "EUR 3y": 0.04,
+        "EUR 5y": 0.01,
+        "EUR 7y": -0.02,
+        "EUR 10y": -0.03,
+        "EUR 15y": -0.04,
+        "EUR 20y": -0.04,
+        "EUR 30y": -0.02,
+        "GBP 1y": -0.16,
+        "GBP 2y": -0.19,
+        "GBP 3y": -0.21,
+        "GBP 5y": -0.23,
+        "GBP 7y": -0.23,
+        "GBP 10y": -0.23,
+        "GBP 15y": -0.22,
+        "GBP 20y": -0.22,
+        "GBP 30y": -0.22
+      },
+      "G3": {
+        "USD 1y": 0.26,
+        "USD 2y": 0.21,
+        "USD 3y": 0.11,
+        "USD 5y": -0.02,
+        "USD 7y": -0.11,
+        "USD 10y": -0.2,
+        "USD 15y": -0.25,
+        "USD 20y": -0.28,
+        "USD 30y": -0.31,
+        "EUR 1y": 0.25,
+        "EUR 2y": 0.25,
+        "EUR 3y": 0.2,
+        "EUR 5y": 0.1,
+        "EUR 7y": 0.03,
+        "EUR 10y": -0.04,
+        "EUR 15y": -0.09,
+        "EUR 20y": -0.12,
+        "EUR 30y": -0.15,
+        "GBP 1y": 0.31,
+        "GBP 2y": 0.3,
+        "GBP 3y": 0.22,
+        "GBP 5y": 0.09,
+        "GBP 7y": -0.0,
+        "GBP 10y": -0.09,
+        "GBP 15y": -0.15,
+        "GBP 20y": -0.19,
+        "GBP 30y": -0.22
+      },
+      "G4": {
+        "USD 1y": -0.12,
+        "USD 2y": -0.15,
+        "USD 3y": -0.15,
+        "USD 5y": -0.12,
+        "USD 7y": -0.1,
+        "USD 10y": -0.08,
+        "USD 15y": -0.07,
+        "USD 20y": -0.06,
+        "USD 30y": -0.05,
+        "EUR 1y": 0.23,
+        "EUR 2y": 0.3,
+        "EUR 3y": 0.31,
+        "EUR 5y": 0.31,
+        "EUR 7y": 0.3,
+        "EUR 10y": 0.29,
+        "EUR 15y": 0.28,
+        "EUR 20y": 0.27,
+        "EUR 30y": 0.26,
+        "GBP 1y": -0.17,
+        "GBP 2y": -0.2,
+        "GBP 3y": -0.2,
+        "GBP 5y": -0.16,
+        "GBP 7y": -0.13,
+        "GBP 10y": -0.09,
+        "GBP 15y": -0.07,
+        "GBP 20y": -0.06,
+        "GBP 30y": -0.06
+      }
+    },
+    "corr_10y_daily": {
+      "USD": {
+        "USD": 1.0,
+        "EUR": 0.65,
+        "GBP": 0.63
+      },
+      "EUR": {
+        "USD": 0.65,
+        "EUR": 1.0,
+        "GBP": 0.78
+      },
+      "GBP": {
+        "USD": 0.63,
+        "EUR": 0.78,
+        "GBP": 1.0
+      }
+    },
+    "corr_10y_weekly": {
+      "USD": {
+        "USD": 1.0,
+        "EUR": 0.73,
+        "GBP": 0.67
+      },
+      "EUR": {
+        "USD": 0.73,
+        "EUR": 1.0,
+        "GBP": 0.81
+      },
+      "GBP": {
+        "USD": 0.67,
+        "EUR": 0.81,
+        "GBP": 1.0
+      }
+    },
+    "usd_today_vs_eur_next_day_corr": 0.14,
+    "usd_today_vs_gbp_next_day_corr": 0.15,
+    "eur_today_vs_usd_next_day_corr": 0.01
+  },
+  "hedge": {
+    "USD": {
+      "2s5s10s": {
+        "50/50": {
+          "oos_days": 1497,
+          "r2_level_slope_pct": 21.7,
+          "beta_level": 0.098,
+          "beta_slope": 0.026,
+          "daily_std_bp": 1.11
+        },
+        "PCA changes": {
+          "oos_days": 1497,
+          "r2_level_slope_pct": 2.3,
+          "beta_level": -0.028,
+          "beta_slope": -0.003,
+          "daily_std_bp": 0.98
+        },
+        "PCA levels": {
+          "oos_days": 1497,
+          "r2_level_slope_pct": 18.7,
+          "beta_level": 0.016,
+          "beta_slope": -0.084,
+          "daily_std_bp": 1.1
+        }
+      },
+      "5s10s30s": {
+        "50/50": {
+          "oos_days": 1497,
+          "r2_level_slope_pct": 34.0,
+          "beta_level": 0.08,
+          "beta_slope": 0.041,
+          "daily_std_bp": 0.75
+        },
+        "PCA changes": {
+          "oos_days": 1497,
+          "r2_level_slope_pct": 4.6,
+          "beta_level": -0.011,
+          "beta_slope": 0.021,
+          "daily_std_bp": 0.65
+        },
+        "PCA levels": {
+          "oos_days": 1497,
+          "r2_level_slope_pct": 14.4,
+          "beta_level": 0.053,
+          "beta_slope": 0.003,
+          "daily_std_bp": 0.75
+        }
+      }
+    },
+    "EUR": {
+      "2s5s10s": {
+        "50/50": {
+          "oos_days": 1213,
+          "r2_level_slope_pct": 29.0,
+          "beta_level": 0.1,
+          "beta_slope": -0.012,
+          "daily_std_bp": 0.9
+        },
+        "PCA changes": {
+          "oos_days": 1213,
+          "r2_level_slope_pct": 6.1,
+          "beta_level": -0.039,
+          "beta_slope": 0.008,
+          "daily_std_bp": 0.79
+        },
+        "PCA levels": {
+          "oos_days": 1213,
+          "r2_level_slope_pct": 14.3,
+          "beta_level": 0.018,
+          "beta_slope": -0.076,
+          "daily_std_bp": 0.93
+        }
+      },
+      "5s10s30s": {
+        "50/50": {
+          "oos_days": 1213,
+          "r2_level_slope_pct": 17.9,
+          "beta_level": 0.076,
+          "beta_slope": 0.012,
+          "daily_std_bp": 0.84
+        },
+        "PCA changes": {
+          "oos_days": 1213,
+          "r2_level_slope_pct": 7.7,
+          "beta_level": -0.013,
+          "beta_slope": 0.047,
+          "daily_std_bp": 0.81
+        },
+        "PCA levels": {
+          "oos_days": 1213,
+          "r2_level_slope_pct": 11.1,
+          "beta_level": 0.015,
+          "beta_slope": 0.073,
+          "daily_std_bp": 0.92
+        }
+      }
+    },
+    "GBP": {
+      "2s5s10s": {
+        "50/50": {
+          "oos_days": 2475,
+          "r2_level_slope_pct": 20.0,
+          "beta_level": 0.067,
+          "beta_slope": -0.005,
+          "daily_std_bp": 0.7
+        },
+        "PCA changes": {
+          "oos_days": 2475,
+          "r2_level_slope_pct": 1.3,
+          "beta_level": -0.004,
+          "beta_slope": -0.015,
+          "daily_std_bp": 0.63
+        },
+        "PCA levels": {
+          "oos_days": 2475,
+          "r2_level_slope_pct": 3.7,
+          "beta_level": 0.026,
+          "beta_slope": -0.02,
+          "daily_std_bp": 0.77
+        }
+      },
+      "5s10s30s": {
+        "50/50": {
+          "oos_days": 2475,
+          "r2_level_slope_pct": 6.6,
+          "beta_level": 0.024,
+          "beta_slope": 0.033,
+          "daily_std_bp": 0.74
+        },
+        "PCA changes": {
+          "oos_days": 2475,
+          "r2_level_slope_pct": 3.0,
+          "beta_level": -0.021,
+          "beta_slope": 0.021,
+          "daily_std_bp": 0.76
+        },
+        "PCA levels": {
+          "oos_days": 2475,
+          "r2_level_slope_pct": 2.6,
+          "beta_level": 0.018,
+          "beta_slope": 0.019,
+          "daily_std_bp": 0.77
+        }
+      }
+    }
+  },
+  "salomon": {
+    "base": {
+      "USD": {
+        "2s5s10s": {
+          "PCA levels": {
+            "trades": 18,
+            "hit_rate_pct": 50,
+            "avg_bp": -1.94,
+            "total_bp": -34.9,
+            "worst_bp": -27.1,
+            "best_bp": 6.1,
+            "avg_days": 42,
+            "timeouts": 10,
+            "timeout_avg_bp": -6.32,
+            "sharpe": -0.46
+          },
+          "PCA changes": {
+            "trades": 12,
+            "hit_rate_pct": 33,
+            "avg_bp": -4.45,
+            "total_bp": -53.4,
+            "worst_bp": -20.8,
+            "best_bp": 5.0,
+            "avg_days": 45,
+            "timeouts": 8,
+            "timeout_avg_bp": -8.4,
+            "sharpe": -0.89
+          },
+          "50/50": {
+            "trades": 17,
+            "hit_rate_pct": 76,
+            "avg_bp": 0.91,
+            "total_bp": 15.5,
+            "worst_bp": -14.8,
+            "best_bp": 17.7,
+            "avg_days": 31,
+            "timeouts": 5,
+            "timeout_avg_bp": -5.63,
+            "sharpe": 0.24
+          }
+        },
+        "5s10s30s": {
+          "PCA levels": {
+            "trades": 19,
+            "hit_rate_pct": 79,
+            "avg_bp": 0.86,
+            "total_bp": 16.4,
+            "worst_bp": -10.6,
+            "best_bp": 7.8,
+            "avg_days": 26,
+            "timeouts": 5,
+            "timeout_avg_bp": -3.05,
+            "sharpe": 0.38
+          },
+          "PCA changes": {
+            "trades": 17,
+            "hit_rate_pct": 53,
+            "avg_bp": -0.19,
+            "total_bp": -3.3,
+            "worst_bp": -9.4,
+            "best_bp": 10.3,
+            "avg_days": 44,
+            "timeouts": 9,
+            "timeout_avg_bp": -2.9,
+            "sharpe": -0.07
+          },
+          "50/50": {
+            "trades": 14,
+            "hit_rate_pct": 86,
+            "avg_bp": 1.56,
+            "total_bp": 21.8,
+            "worst_bp": -9.9,
+            "best_bp": 8.4,
+            "avg_days": 24,
+            "timeouts": 4,
+            "timeout_avg_bp": -1.1,
+            "sharpe": 0.66
+          }
+        }
+      },
+      "EUR": {
+        "2s5s10s": {
+          "PCA levels": {
+            "trades": 10,
+            "hit_rate_pct": 50,
+            "avg_bp": -5.69,
+            "total_bp": -56.9,
+            "worst_bp": -33.5,
+            "best_bp": 3.3,
+            "avg_days": 35,
+            "timeouts": 5,
+            "timeout_avg_bp": -13.67,
+            "sharpe": -0.96
+          },
+          "PCA changes": {
+            "trades": 15,
+            "hit_rate_pct": 53,
+            "avg_bp": -4.41,
+            "total_bp": -66.1,
+            "worst_bp": -26.0,
+            "best_bp": 3.0,
+            "avg_days": 38,
+            "timeouts": 7,
+            "timeout_avg_bp": -11.98,
+            "sharpe": -1.33
+          },
+          "50/50": {
+            "trades": 14,
+            "hit_rate_pct": 64,
+            "avg_bp": -0.59,
+            "total_bp": -8.3,
+            "worst_bp": -12.8,
+            "best_bp": 2.8,
+            "avg_days": 37,
+            "timeouts": 6,
+            "timeout_avg_bp": -4.23,
+            "sharpe": -0.16
+          }
+        },
+        "5s10s30s": {
+          "PCA levels": {
+            "trades": 19,
+            "hit_rate_pct": 68,
+            "avg_bp": -0.44,
+            "total_bp": -8.4,
+            "worst_bp": -12.5,
+            "best_bp": 6.6,
+            "avg_days": 35,
+            "timeouts": 7,
+            "timeout_avg_bp": -6.21,
+            "sharpe": -0.14
+          },
+          "PCA changes": {
+            "trades": 15,
+            "hit_rate_pct": 80,
+            "avg_bp": 1.76,
+            "total_bp": 26.4,
+            "worst_bp": -6.7,
+            "best_bp": 6.9,
+            "avg_days": 27,
+            "timeouts": 4,
+            "timeout_avg_bp": -1.9,
+            "sharpe": 0.61
+          },
+          "50/50": {
+            "trades": 12,
+            "hit_rate_pct": 58,
+            "avg_bp": 0.03,
+            "total_bp": 0.3,
+            "worst_bp": -9.3,
+            "best_bp": 4.3,
+            "avg_days": 40,
+            "timeouts": 6,
+            "timeout_avg_bp": -2.38,
+            "sharpe": 0.01
+          }
+        }
+      },
+      "GBP": {
+        "2s5s10s": {
+          "PCA levels": {
+            "trades": 31,
+            "hit_rate_pct": 81,
+            "avg_bp": 0.84,
+            "total_bp": 26.1,
+            "worst_bp": -10.9,
+            "best_bp": 9.0,
+            "avg_days": 29,
+            "timeouts": 8,
+            "timeout_avg_bp": -3.91,
+            "sharpe": 0.28
+          },
+          "PCA changes": {
+            "trades": 25,
+            "hit_rate_pct": 76,
+            "avg_bp": 0.65,
+            "total_bp": 16.1,
+            "worst_bp": -10.3,
+            "best_bp": 9.3,
+            "avg_days": 28,
+            "timeouts": 7,
+            "timeout_avg_bp": -4.71,
+            "sharpe": 0.25
+          },
+          "50/50": {
+            "trades": 27,
+            "hit_rate_pct": 85,
+            "avg_bp": 1.57,
+            "total_bp": 42.5,
+            "worst_bp": -8.8,
+            "best_bp": 8.5,
+            "avg_days": 24,
+            "timeouts": 6,
+            "timeout_avg_bp": -2.82,
+            "sharpe": 0.64
+          }
+        },
+        "5s10s30s": {
+          "PCA levels": {
+            "trades": 22,
+            "hit_rate_pct": 73,
+            "avg_bp": 1.3,
+            "total_bp": 28.7,
+            "worst_bp": -8.6,
+            "best_bp": 17.0,
+            "avg_days": 26,
+            "timeouts": 8,
+            "timeout_avg_bp": -3.11,
+            "sharpe": 0.33
+          },
+          "PCA changes": {
+            "trades": 28,
+            "hit_rate_pct": 75,
+            "avg_bp": 0.77,
+            "total_bp": 21.6,
+            "worst_bp": -13.2,
+            "best_bp": 8.3,
+            "avg_days": 26,
+            "timeouts": 9,
+            "timeout_avg_bp": -3.36,
+            "sharpe": 0.24
+          },
+          "50/50": {
+            "trades": 28,
+            "hit_rate_pct": 93,
+            "avg_bp": 1.96,
+            "total_bp": 55.0,
+            "worst_bp": -1.5,
+            "best_bp": 6.3,
+            "avg_days": 15,
+            "timeouts": 2,
+            "timeout_avg_bp": -1.04,
+            "sharpe": 0.75
+          }
+        }
+      }
+    },
+    "grid": {
+      "3/10 hold 60": {
+        "USD 2s5s10s": {
+          "trades": 18,
+          "hit_rate_pct": 50,
+          "avg_bp": -1.94,
+          "total_bp": -34.9,
+          "worst_bp": -27.1,
+          "best_bp": 6.1,
+          "avg_days": 42,
+          "timeouts": 10,
+          "timeout_avg_bp": -6.32,
+          "sharpe": -0.46
+        },
+        "USD 5s10s30s": {
+          "trades": 19,
+          "hit_rate_pct": 79,
+          "avg_bp": 0.86,
+          "total_bp": 16.4,
+          "worst_bp": -10.6,
+          "best_bp": 7.8,
+          "avg_days": 26,
+          "timeouts": 5,
+          "timeout_avg_bp": -3.05,
+          "sharpe": 0.38
+        },
+        "EUR 2s5s10s": {
+          "trades": 10,
+          "hit_rate_pct": 50,
+          "avg_bp": -5.69,
+          "total_bp": -56.9,
+          "worst_bp": -33.5,
+          "best_bp": 3.3,
+          "avg_days": 35,
+          "timeouts": 5,
+          "timeout_avg_bp": -13.67,
+          "sharpe": -0.96
+        },
+        "EUR 5s10s30s": {
+          "trades": 19,
+          "hit_rate_pct": 68,
+          "avg_bp": -0.44,
+          "total_bp": -8.4,
+          "worst_bp": -12.5,
+          "best_bp": 6.6,
+          "avg_days": 35,
+          "timeouts": 7,
+          "timeout_avg_bp": -6.21,
+          "sharpe": -0.14
+        },
+        "GBP 2s5s10s": {
+          "trades": 31,
+          "hit_rate_pct": 81,
+          "avg_bp": 0.84,
+          "total_bp": 26.1,
+          "worst_bp": -10.9,
+          "best_bp": 9.0,
+          "avg_days": 29,
+          "timeouts": 8,
+          "timeout_avg_bp": -3.91,
+          "sharpe": 0.28
+        },
+        "GBP 5s10s30s": {
+          "trades": 22,
+          "hit_rate_pct": 73,
+          "avg_bp": 1.3,
+          "total_bp": 28.7,
+          "worst_bp": -8.6,
+          "best_bp": 17.0,
+          "avg_days": 26,
+          "timeouts": 8,
+          "timeout_avg_bp": -3.11,
+          "sharpe": 0.33
+        }
+      },
+      "3/10 hold 120": {
+        "USD 2s5s10s": {
+          "trades": 13,
+          "hit_rate_pct": 62,
+          "avg_bp": -3.04,
+          "total_bp": -39.5,
+          "worst_bp": -49.9,
+          "best_bp": 9.3,
+          "avg_days": 66,
+          "timeouts": 5,
+          "timeout_avg_bp": -13.97,
+          "sharpe": -0.46
+        },
+        "USD 5s10s30s": {
+          "trades": 18,
+          "hit_rate_pct": 83,
+          "avg_bp": 1.15,
+          "total_bp": 20.7,
+          "worst_bp": -6.7,
+          "best_bp": 7.8,
+          "avg_days": 35,
+          "timeouts": 3,
+          "timeout_avg_bp": -4.89,
+          "sharpe": 0.43
+        },
+        "EUR 2s5s10s": {
+          "trades": 7,
+          "hit_rate_pct": 71,
+          "avg_bp": -10.03,
+          "total_bp": -70.2,
+          "worst_bp": -79.4,
+          "best_bp": 4.1,
+          "avg_days": 54,
+          "timeouts": 2,
+          "timeout_avg_bp": -41.23,
+          "sharpe": -1.02
+        },
+        "EUR 5s10s30s": {
+          "trades": 13,
+          "hit_rate_pct": 69,
+          "avg_bp": -4.65,
+          "total_bp": -60.4,
+          "worst_bp": -44.1,
+          "best_bp": 3.6,
+          "avg_days": 60,
+          "timeouts": 5,
+          "timeout_avg_bp": -16.04,
+          "sharpe": -0.76
+        },
+        "GBP 2s5s10s": {
+          "trades": 25,
+          "hit_rate_pct": 84,
+          "avg_bp": 0.45,
+          "total_bp": 11.3,
+          "worst_bp": -24.7,
+          "best_bp": 8.3,
+          "avg_days": 40,
+          "timeouts": 4,
+          "timeout_avg_bp": -9.35,
+          "sharpe": 0.12
+        },
+        "GBP 5s10s30s": {
+          "trades": 20,
+          "hit_rate_pct": 90,
+          "avg_bp": 2.07,
+          "total_bp": 41.5,
+          "worst_bp": -11.3,
+          "best_bp": 17.0,
+          "avg_days": 33,
+          "timeouts": 2,
+          "timeout_avg_bp": -9.44,
+          "sharpe": 0.47
+        }
+      },
+      "3/30 hold 60": {
+        "USD 2s5s10s": {
+          "trades": 15,
+          "hit_rate_pct": 27,
+          "avg_bp": -4.21,
+          "total_bp": -63.1,
+          "worst_bp": -27.2,
+          "best_bp": 10.8,
+          "avg_days": 59,
+          "timeouts": 14,
+          "timeout_avg_bp": -5.28,
+          "sharpe": -0.78
+        },
+        "USD 5s10s30s": {
+          "trades": 17,
+          "hit_rate_pct": 71,
+          "avg_bp": 1.48,
+          "total_bp": 25.1,
+          "worst_bp": -10.6,
+          "best_bp": 7.8,
+          "avg_days": 36,
+          "timeouts": 7,
+          "timeout_avg_bp": -2.44,
+          "sharpe": 0.53
+        },
+        "EUR 2s5s10s": {
+          "trades": 9,
+          "hit_rate_pct": 44,
+          "avg_bp": -5.45,
+          "total_bp": -49.0,
+          "worst_bp": -33.5,
+          "best_bp": 8.2,
+          "avg_days": 50,
+          "timeouts": 6,
+          "timeout_avg_bp": -11.22,
+          "sharpe": -0.78
+        },
+        "EUR 5s10s30s": {
+          "trades": 17,
+          "hit_rate_pct": 47,
+          "avg_bp": -0.86,
+          "total_bp": -14.5,
+          "worst_bp": -10.9,
+          "best_bp": 10.0,
+          "avg_days": 47,
+          "timeouts": 11,
+          "timeout_avg_bp": -4.22,
+          "sharpe": -0.22
+        },
+        "GBP 2s5s10s": {
+          "trades": 24,
+          "hit_rate_pct": 58,
+          "avg_bp": -0.25,
+          "total_bp": -6.1,
+          "worst_bp": -10.9,
+          "best_bp": 9.0,
+          "avg_days": 48,
+          "timeouts": 15,
+          "timeout_avg_bp": -2.98,
+          "sharpe": -0.06
+        },
+        "GBP 5s10s30s": {
+          "trades": 20,
+          "hit_rate_pct": 60,
+          "avg_bp": 1.7,
+          "total_bp": 34.1,
+          "worst_bp": -8.6,
+          "best_bp": 17.0,
+          "avg_days": 38,
+          "timeouts": 11,
+          "timeout_avg_bp": -2.31,
+          "sharpe": 0.39
+        }
+      },
+      "3/30 hold 120": {
+        "USD 2s5s10s": {
+          "trades": 9,
+          "hit_rate_pct": 33,
+          "avg_bp": -6.55,
+          "total_bp": -58.9,
+          "worst_bp": -51.5,
+          "best_bp": 9.3,
+          "avg_days": 109,
+          "timeouts": 6,
+          "timeout_avg_bp": -12.6,
+          "sharpe": -0.65
+        },
+        "USD 5s10s30s": {
+          "trades": 15,
+          "hit_rate_pct": 80,
+          "avg_bp": 2.08,
+          "total_bp": 31.2,
+          "worst_bp": -9.1,
+          "best_bp": 7.8,
+          "avg_days": 49,
+          "timeouts": 4,
+          "timeout_avg_bp": -4.14,
+          "sharpe": 0.59
+        },
+        "EUR 2s5s10s": {
+          "trades": 6,
+          "hit_rate_pct": 67,
+          "avg_bp": -10.57,
+          "total_bp": -63.4,
+          "worst_bp": -79.4,
+          "best_bp": 8.2,
+          "avg_days": 77,
+          "timeouts": 3,
+          "timeout_avg_bp": -26.35,
+          "sharpe": -0.89
+        },
+        "EUR 5s10s30s": {
+          "trades": 9,
+          "hit_rate_pct": 44,
+          "avg_bp": -7.51,
+          "total_bp": -67.6,
+          "worst_bp": -44.1,
+          "best_bp": 5.4,
+          "avg_days": 94,
+          "timeouts": 6,
+          "timeout_avg_bp": -13.46,
+          "sharpe": -0.83
+        },
+        "GBP 2s5s10s": {
+          "trades": 17,
+          "hit_rate_pct": 65,
+          "avg_bp": -0.88,
+          "total_bp": -14.9,
+          "worst_bp": -24.7,
+          "best_bp": 8.3,
+          "avg_days": 79,
+          "timeouts": 8,
+          "timeout_avg_bp": -6.56,
+          "sharpe": -0.14
+        },
+        "GBP 5s10s30s": {
+          "trades": 17,
+          "hit_rate_pct": 76,
+          "avg_bp": 3.01,
+          "total_bp": 51.1,
+          "worst_bp": -11.3,
+          "best_bp": 17.0,
+          "avg_days": 58,
+          "timeouts": 5,
+          "timeout_avg_bp": -4.14,
+          "sharpe": 0.56
+        }
+      },
+      "10/30 hold 60": {
+        "USD 2s5s10s": {
+          "trades": 20,
+          "hit_rate_pct": 40,
+          "avg_bp": -3.31,
+          "total_bp": -66.3,
+          "worst_bp": -32.1,
+          "best_bp": 10.2,
+          "avg_days": 50,
+          "timeouts": 14,
+          "timeout_avg_bp": -7.24,
+          "sharpe": -0.75
+        },
+        "USD 5s10s30s": {
+          "trades": 27,
+          "hit_rate_pct": 78,
+          "avg_bp": 1.24,
+          "total_bp": 33.4,
+          "worst_bp": -13.6,
+          "best_bp": 7.8,
+          "avg_days": 30,
+          "timeouts": 9,
+          "timeout_avg_bp": -1.96,
+          "sharpe": 0.61
+        },
+        "EUR 2s5s10s": {
+          "trades": 15,
+          "hit_rate_pct": 60,
+          "avg_bp": -2.58,
+          "total_bp": -38.7,
+          "worst_bp": -37.1,
+          "best_bp": 5.3,
+          "avg_days": 40,
+          "timeouts": 8,
+          "timeout_avg_bp": -7.61,
+          "sharpe": -0.59
+        },
+        "EUR 5s10s30s": {
+          "trades": 23,
+          "hit_rate_pct": 57,
+          "avg_bp": -0.04,
+          "total_bp": -1.0,
+          "worst_bp": -10.9,
+          "best_bp": 10.0,
+          "avg_days": 39,
+          "timeouts": 11,
+          "timeout_avg_bp": -4.91,
+          "sharpe": -0.01
+        },
+        "GBP 2s5s10s": {
+          "trades": 37,
+          "hit_rate_pct": 62,
+          "avg_bp": 0.34,
+          "total_bp": 12.7,
+          "worst_bp": -13.3,
+          "best_bp": 12.6,
+          "avg_days": 41,
+          "timeouts": 19,
+          "timeout_avg_bp": -3.29,
+          "sharpe": 0.11
+        },
+        "GBP 5s10s30s": {
+          "trades": 35,
+          "hit_rate_pct": 74,
+          "avg_bp": 1.62,
+          "total_bp": 56.5,
+          "worst_bp": -9.0,
+          "best_bp": 17.0,
+          "avg_days": 31,
+          "timeouts": 13,
+          "timeout_avg_bp": -2.16,
+          "sharpe": 0.58
+        }
+      },
+      "10/30 hold 120": {
+        "USD 2s5s10s": {
+          "trades": 12,
+          "hit_rate_pct": 50,
+          "avg_bp": -4.95,
+          "total_bp": -59.4,
+          "worst_bp": -49.9,
+          "best_bp": 6.2,
+          "avg_days": 91,
+          "timeouts": 7,
+          "timeout_avg_bp": -11.72,
+          "sharpe": -0.61
+        },
+        "USD 5s10s30s": {
+          "trades": 22,
+          "hit_rate_pct": 82,
+          "avg_bp": 1.19,
+          "total_bp": 26.3,
+          "worst_bp": -9.1,
+          "best_bp": 7.8,
+          "avg_days": 41,
+          "timeouts": 5,
+          "timeout_avg_bp": -4.27,
+          "sharpe": 0.45
+        },
+        "EUR 2s5s10s": {
+          "trades": 11,
+          "hit_rate_pct": 82,
+          "avg_bp": -4.2,
+          "total_bp": -46.2,
+          "worst_bp": -70.8,
+          "best_bp": 5.3,
+          "avg_days": 50,
+          "timeouts": 3,
+          "timeout_avg_bp": -25.0,
+          "sharpe": -0.64
+        },
+        "EUR 5s10s30s": {
+          "trades": 14,
+          "hit_rate_pct": 57,
+          "avg_bp": -4.29,
+          "total_bp": -60.1,
+          "worst_bp": -44.1,
+          "best_bp": 6.1,
+          "avg_days": 66,
+          "timeouts": 6,
+          "timeout_avg_bp": -14.98,
+          "sharpe": -0.72
+        },
+        "GBP 2s5s10s": {
+          "trades": 26,
+          "hit_rate_pct": 65,
+          "avg_bp": 0.08,
+          "total_bp": 2.1,
+          "worst_bp": -27.6,
+          "best_bp": 12.6,
+          "avg_days": 69,
+          "timeouts": 10,
+          "timeout_avg_bp": -5.83,
+          "sharpe": 0.02
+        },
+        "GBP 5s10s30s": {
+          "trades": 27,
+          "hit_rate_pct": 85,
+          "avg_bp": 2.19,
+          "total_bp": 59.1,
+          "worst_bp": -13.3,
+          "best_bp": 17.0,
+          "avg_days": 48,
+          "timeouts": 7,
+          "timeout_avg_bp": -3.27,
+          "sharpe": 0.58
+        }
+      }
+    },
+    "pooled": {
+      "50/50": {
+        "trades": 112,
+        "hit_rate_pct": 80,
+        "avg_bp": 1.13,
+        "median_bp": 1.7,
+        "worst_bp": -14.8,
+        "timeout_share_pct": 26,
+        "avg_bp_converged": 2.63,
+        "avg_bp_timed_out": -3.14
+      },
+      "PCA changes": {
+        "trades": 112,
+        "hit_rate_pct": 65,
+        "avg_bp": -0.52,
+        "median_bp": 1.38,
+        "worst_bp": -26.0,
+        "timeout_share_pct": 39,
+        "avg_bp_converged": 2.78,
+        "avg_bp_timed_out": -5.64
+      },
+      "PCA levels": {
+        "trades": 119,
+        "hit_rate_pct": 70,
+        "avg_bp": -0.24,
+        "median_bp": 1.45,
+        "worst_bp": -33.5,
+        "timeout_share_pct": 36,
+        "avg_bp_converged": 2.86,
+        "avg_bp_timed_out": -5.73
+      }
+    },
+    "pca_levels_2022": {
+      "trades_entered_2022": 31,
+      "pnl_entered_2022_by_fly": {
+        "EUR 2s5s10s": -63.4,
+        "EUR 5s10s30s": -1.9,
+        "GBP 2s5s10s": -10.2,
+        "GBP 5s10s30s": 28.2,
+        "USD 2s5s10s": -38.9,
+        "USD 5s10s30s": 20.0
+      },
+      "pnl_total_by_fly": {
+        "EUR 2s5s10s": -56.9,
+        "EUR 5s10s30s": -8.4,
+        "GBP 2s5s10s": 26.1,
+        "GBP 5s10s30s": 28.7,
+        "USD 2s5s10s": -34.9,
+        "USD 5s10s30s": 16.4
+      },
+      "avg_bp_ex_2022_entries": 0.42,
+      "avg_bp_2022_entries": -2.13
+    },
+    "grid_summary": {
+      "3/10 hold 60": {
+        "median_sharpe": 0.07,
+        "positive_of_6": 3,
+        "avg_bp_per_trade_pooled": -0.85
+      },
+      "3/10 hold 120": {
+        "median_sharpe": -0.17,
+        "positive_of_6": 3,
+        "avg_bp_per_trade_pooled": -2.34
+      },
+      "3/30 hold 60": {
+        "median_sharpe": -0.14,
+        "positive_of_6": 2,
+        "avg_bp_per_trade_pooled": -1.26
+      },
+      "3/30 hold 120": {
+        "median_sharpe": -0.4,
+        "positive_of_6": 2,
+        "avg_bp_per_trade_pooled": -3.4
+      },
+      "10/30 hold 60": {
+        "median_sharpe": 0.05,
+        "positive_of_6": 3,
+        "avg_bp_per_trade_pooled": -0.46
+      },
+      "10/30 hold 120": {
+        "median_sharpe": -0.29,
+        "positive_of_6": 3,
+        "avg_bp_per_trade_pooled": -1.66
+      }
+    }
+  },
+  "residuals": {
+    "USD": {
+      "date": "2026-04-27",
+      "resid_bp": {
+        "1y": -0.7,
+        "2y": 2.6,
+        "3y": 1.0,
+        "5y": -1.3,
+        "7y": -1.7,
+        "10y": -1.3,
+        "15y": -0.4,
+        "20y": 0.4,
+        "30y": 1.8
+      },
+      "z": {
+        "1y": 0.27,
+        "2y": 0.65,
+        "3y": -0.0,
+        "5y": -1.41,
+        "7y": -0.66,
+        "10y": -0.31,
+        "15y": -0.16,
+        "20y": 0.63,
+        "30y": 0.8
+      },
+      "resid_std_bp": {
+        "1y": 1.26,
+        "2y": 1.73,
+        "3y": 0.98,
+        "5y": 1.02,
+        "7y": 1.23,
+        "10y": 1.03,
+        "15y": 0.59,
+        "20y": 0.74,
+        "30y": 1.41
+      },
+      "half_life_days": {
+        "1y": 18.7,
+        "2y": 20.0,
+        "3y": 10.0,
+        "5y": 10.2,
+        "7y": 15.1,
+        "10y": 9.9,
+        "15y": 15.5,
+        "20y": 16.1,
+        "30y": 11.4
+      },
+      "max_abs_z_now": 1.41,
+      "share_days_any_abs_z_gt_2_pct": 26.7
+    },
+    "EUR": {
+      "date": "2026-04-27",
+      "resid_bp": {
+        "1y": 1.1,
+        "2y": -0.5,
+        "3y": -0.8,
+        "5y": -0.2,
+        "7y": 0.2,
+        "10y": 0.4,
+        "15y": 0.2,
+        "20y": 0.2,
+        "30y": -0.2
+      },
+      "z": {
+        "1y": 1.49,
+        "2y": -1.34,
+        "3y": -1.39,
+        "5y": -0.24,
+        "7y": 1.2,
+        "10y": 1.26,
+        "15y": 0.75,
+        "20y": -0.14,
+        "30y": -0.76
+      },
+      "resid_std_bp": {
+        "1y": 1.35,
+        "2y": 1.35,
+        "3y": 1.23,
+        "5y": 0.68,
+        "7y": 0.95,
+        "10y": 1.3,
+        "15y": 1.12,
+        "20y": 0.54,
+        "30y": 1.92
+      },
+      "half_life_days": {
+        "1y": 19.0,
+        "2y": 15.9,
+        "3y": 19.2,
+        "5y": 6.1,
+        "7y": 16.6,
+        "10y": 18.0,
+        "15y": 23.3,
+        "20y": 13.4,
+        "30y": 25.6
+      },
+      "max_abs_z_now": 1.49,
+      "share_days_any_abs_z_gt_2_pct": 31.9
+    },
+    "GBP": {
+      "date": "2026-04-17",
+      "resid_bp": {
+        "1y": -0.5,
+        "2y": 1.1,
+        "3y": 0.0,
+        "5y": -0.4,
+        "7y": -0.7,
+        "10y": -0.3,
+        "15y": -0.1,
+        "20y": 0.2,
+        "30y": 0.5
+      },
+      "z": {
+        "1y": 0.0,
+        "2y": 0.55,
+        "3y": -0.62,
+        "5y": -0.46,
+        "7y": -0.36,
+        "10y": 0.11,
+        "15y": 0.12,
+        "20y": 0.5,
+        "30y": 0.06
+      },
+      "resid_std_bp": {
+        "1y": 1.15,
+        "2y": 1.3,
+        "3y": 0.88,
+        "5y": 0.78,
+        "7y": 0.91,
+        "10y": 0.89,
+        "15y": 0.54,
+        "20y": 0.39,
+        "30y": 1.15
+      },
+      "half_life_days": {
+        "1y": 13.4,
+        "2y": 19.4,
+        "3y": 8.0,
+        "5y": 12.2,
+        "7y": 14.3,
+        "10y": 6.8,
+        "15y": 7.8,
+        "20y": 9.4,
+        "30y": 8.9
+      },
+      "max_abs_z_now": 0.62,
+      "share_days_any_abs_z_gt_2_pct": 26.3
+    }
+  }
+}

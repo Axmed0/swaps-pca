@@ -1,0 +1,8 @@
+__pycache__/
+# Raw curve data: commit only if the source allows redistribution
+data/
+*.p
+cv_section.tex
+EXPLAINER.md
+cv_section.tex
+EXPLAINER.md

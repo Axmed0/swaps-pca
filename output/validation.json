@@ -1,0 +1,25 @@
+{
+  "overlap_start": "2016-01-04",
+  "overlap_end": "2026-04-17",
+  "days": 2599,
+  "2y": {
+    "mean_level_diff_bp": 2.0,
+    "sd_level_diff_bp": 2.9,
+    "daily_change_corr": 0.933
+  },
+  "5y": {
+    "mean_level_diff_bp": 2.4,
+    "sd_level_diff_bp": 3.5,
+    "daily_change_corr": 0.945
+  },
+  "10y": {
+    "mean_level_diff_bp": 1.8,
+    "sd_level_diff_bp": 3.9,
+    "daily_change_corr": 0.928
+  },
+  "25y": {
+    "mean_level_diff_bp": 0.5,
+    "sd_level_diff_bp": 5.6,
+    "daily_change_corr": 0.919
+  }
+}
