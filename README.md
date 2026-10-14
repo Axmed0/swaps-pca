@@ -1,83 +1,140 @@
-# PCA on USD, EUR and GBP OIS swap curves
+# PCA of USD, EUR and GBP OIS Swap Curves
 
-USD SOFR, EUR ESTR and GBP SONIA par swap curves, 1y to 30y, daily to April 2026. Python.
+Principal component analysis of USD SOFR, EUR €STR and GBP SONIA par swap curves, covering maturities from 1y to 30y using daily data through April 2026.
 
-Methods follow the practitioner research collected in [yieldcurvemonkey/Curvy-CUSIPs/research/PCA](https://github.com/yieldcurvemonkey/Curvy-CUSIPs/tree/main/research/PCA), mainly Salomon Smith Barney's "Principles of Principal Components" (2000), with the residual approach from Credit Suisse's "PCA Unleashed" (2012) and Standard Chartered's swaps relative-value tool (2013).
+This project looks at how swap curves move, how closely rate movements are linked across currencies, and whether PCA can improve butterfly hedging and identify relative-value opportunities.
 
-## Summary
+The methodology draws on practitioner research from [Salomon Smith Barney](https://github.com/yieldcurvemonkey/Curvy-CUSIPs/tree/main/research/PCA), Credit Suisse and Standard Chartered, particularly their work on curve risk, PCA hedging and swap relative value.
 
-- Three factors explain 99.5% to 99.7% of daily moves in each curve, and the three currencies have almost identical factor shapes. Level explains 87% to 88%, slope 10% to 11%, curvature 1.0% to 1.4%.
-- Across currencies, one global factor explains 69.6% of weekly moves in the 27 rates combined. The second (12.9%) is USD against GBP. EUR needs a fourth factor of its own: two global factors explain 72% of EUR curve variance but 85% to 87% of USD and GBP.
-- Same-day correlations across currencies are understated: the USD 10y move today has a 0.14 correlation with tomorrow's EUR 10y move, against 0.01 the other way. USD marks later in the day, so cross-currency PCA has to use weekly data.
-- PCA fly weights from daily changes are the best hedge out of sample. They cut the share of fly variance explained by level and slope to 1% to 8%, against 7% to 34% for 50/50 weights. Weights from yield levels hedge worse (3% to 19%).
-- Salomon's butterfly trading rule does not survive on these curves. Pooled over six flies, PCA-level trades won 70% of the time but averaged -0.24bp, because the 36% of trades that never reverted lost 5.7bp on average. Trades entered in 2022 explain the losses. Outside 2022 the average is +0.42bp a trade.
+## Key findings
+
+- **Three factors explain 99.5% to 99.7% of daily curve movements.** Level accounts for 87% to 88% of variance, slope for 10% to 11%, and curvature for around 1% to 1.4%. The factor shapes are remarkably similar across all three currencies.
+- **A common global factor explains 69.6% of weekly movements across all 27 rates.** A second factor captures the divergence between USD and GBP, while EUR requires an additional factor to explain its own level movements.
+- **Market timing matters for cross-currency analysis.** USD 10y moves correlate more strongly with the following day's EUR and GBP moves than with their same-day changes. Weekly data help account for differences in market closing times.
+- **PCA weights estimated from daily changes produce better-hedged butterflies.** Across six flies, these weights reduce the share of variance explained by level and slope to 1% to 8%, compared with 7% to 34% using conventional 50/50 weights.
+- **The classic PCA butterfly mean-reversion strategy struggles to make money.** The level-based strategy wins 70% of trades but loses 0.24bp per trade on average. Trades that fail to revert, particularly those entered during 2022, account for much of the underperformance.
 
 ## Data
 
-| | Start | End | Days |
-|---|---|---|---|
+The analysis uses daily Bloomberg par swap rates across three curves.
+
+| Curve | Start date | End date | Observations |
+|---|---|---|---:|
 | USD SOFR | 17 Apr 2018 | 27 Apr 2026 | 2,007 |
-| EUR ESTR | 1 Aug 2019 | 27 Apr 2026 | 1,725 |
+| EUR €STR | 1 Aug 2019 | 27 Apr 2026 | 1,725 |
 | GBP SONIA | 26 Jun 2014 | 17 Apr 2026 | 2,985 |
 
-- Daily par swap rates at 29 tenors from 1 week to 50 years, supplied as pickled pandas DataFrames. Source: Bloomberg. The analysis uses the nine tenors 1y, 2y, 3y, 5y, 7y, 10y, 15y, 20y and 30y.
-- No gaps longer than five calendar days and no stale rows. The largest daily moves line up with known events: USD 1y -79.5bp on 13 March 2023, EUR 1y -41.2bp on 15 March 2023, GBP 1y +72.7bp on 26 September 2022.
-- Cross-check against the Bank of England OIS spot curve (fitted zero-coupon rates, 2,599 common days): GBP par rates sit 0.5bp to 2.4bp above the BoE curve on average at 2y, 5y, 10y and 25y, and daily changes have a 0.92 to 0.95 correlation. Par against zero rates and different marking times explain the gap.
-- Loading the pickles uses a restricted unpickler that only allows pandas and numpy classes (`src/load_data.py`).
+The original datasets contain 29 tenors, ranging from one week to 50 years. The analysis focuses on nine maturities:
 
-## 1. The three curves have the same three factors
+`1y, 2y, 3y, 5y, 7y, 10y, 15y, 20y, 30y`
 
-![loadings](output/fig1_loadings_by_ccy.png)
+Data checks cover missing observations, stale rows and unusually large daily moves. The largest changes coincide with identifiable market events, including the March 2023 banking stress and the September 2022 UK gilt sell-off.
 
-| | Level | Slope | Curvature | Top 3 | Daily std 2y / 10y / 30y (bp) |
-|---|---|---|---|---|---|
-| USD | 87.1% | 11.2% | 1.4% | 99.7% | 5.8 / 5.7 / 5.2 |
-| EUR | 87.9% | 10.3% | 1.4% | 99.5% | 4.5 / 4.6 / 4.3 |
-| GBP | 88.4% | 10.2% | 1.0% | 99.6% | 4.7 / 5.2 / 5.2 |
+The GBP curve is also cross-checked against the Bank of England's OIS spot curve, using fitted zero-coupon rates across 2,599 common dates. GBP par rates average 0.5bp to 2.4bp above the BoE curve at the selected maturities, while daily changes have correlations of 0.92 to 0.95.
 
-- Level peaks at 5y in USD and EUR (0.38) and fades to 0.30 at 30y. In GBP it stays at 0.34 to 0.36 from 5y to 30y. The GBP long end moves more with the rest of the curve than the USD or EUR long end does.
-- Slope pivots near 7y in all three. Curvature is the 1y and 30y against the 5y belly.
+The original data are supplied as pickled pandas DataFrames. The loading script uses a restricted unpickler that permits only the required pandas and NumPy classes.
 
-## 2. The slope share doubles in hiking cycles
+## 1. PCA of individual curves
 
-![rolling slope share](output/fig2_rolling_slope_share.png)
+![PCA loadings across USD, EUR and GBP](output/fig1_loadings_by_ccy.png)
 
-- Rolling one-year PC2 share peaked at 19.7% in GBP (window to 9 November 2021), 16.5% in EUR (28 February 2022) and 12.7% in USD (3 March 2022), against medians of 6.5%, 8.6% and 8.0%.
-- GBP peaked first, in November 2021. EUR and USD peaked within a week of each other at the end of February 2022.
-- The latest windows (April 2026) have PC2 at 9.0% (USD), 11.5% (EUR) and 11.4% (GBP), all above their medians.
+The three curves share a similar factor structure. Level dominates daily movements, slope captures changes in the relationship between shorter and longer maturities, and curvature captures movements in the belly relative to the wings.
 
-## 3. One global factor drives 70% of weekly moves
+| Currency | Level | Slope | Curvature | Top 3 factors |
+|---|---:|---:|---:|---:|
+| USD | 87.1% | 11.2% | 1.4% | 99.7% |
+| EUR | 87.9% | 10.3% | 1.4% | 99.5% |
+| GBP | 88.4% | 10.2% | 1.0% | 99.6% |
 
-![global factors](output/fig3_global_factors.png)
+The level factor peaks around 5y in USD and EUR, with loadings of 0.38, before declining to 0.30 at 30y. GBP behaves differently: its loadings remain between 0.34 and 0.36 from 5y to 30y, indicating that its long end moves more closely with the rest of the curve.
 
-Weekly (Wednesday to Wednesday) changes in all 27 rates, 1 August 2019 to 17 April 2026, 350 weeks.
+The slope factor pivots near 7y across all three currencies. Curvature broadly reflects the 1y and 30y maturities moving against the 5y belly.
 
-| Global factor | Share | What it is |
-|---|---|---|
-| G1 | 69.6% | All rates up together. GBP loadings are the largest (0.17 to 0.24), EUR the smallest (0.11 to 0.18). |
-| G2 | 12.9% | USD up, GBP down (USD 2y +0.34, GBP 10y -0.23). EUR loads near zero. |
-| G3 | 7.9% | Global slope: front ends up, long ends down in all three. |
-| G4 | 5.2% | EUR level against the rest (EUR +0.23 to +0.31). |
+## 2. Rolling slope variance
 
-Share of each curve's weekly variance explained by the first k global factors:
+![Rolling one-year slope variance share](output/fig2_rolling_slope_share.png)
 
-| | k = 1 | k = 2 | k = 3 | k = 4 |
-|---|---|---|---|---|
+The share of variance explained by the second principal component rises sharply around the 2021 to 2022 tightening cycle.
+
+| Currency | Median PC2 share | Peak PC2 share | Peak window ending |
+|---|---:|---:|---|
+| GBP | 6.5% | 19.7% | 9 Nov 2021 |
+| EUR | 8.6% | 16.5% | 28 Feb 2022 |
+| USD | 8.0% | 12.7% | 3 Mar 2022 |
+
+GBP peaked first, in November 2021, followed by EUR and USD at the end of February and beginning of March 2022.
+
+The latest rolling windows in April 2026 also show slope contributing more than its historical median in all three currencies.
+
+| Currency | April 2026 PC2 share |
+|---|---:|
+| USD | 9.0% |
+| EUR | 11.5% |
+| GBP | 11.4% |
+
+This is consistent with changing interest rate expectations making the relationship between the front end and the long end more important during the tightening cycle. The result is descriptive and does not establish causation.
+
+## 3. Global PCA across currencies
+
+![Global PCA factors](output/fig3_global_factors.png)
+
+To study cross-currency movements, the nine selected maturities from each curve are combined into a single 27-rate dataset.
+
+The analysis uses Wednesday-to-Wednesday changes from 1 August 2019 to 17 April 2026, giving 350 weekly observations. Weekly sampling helps reduce the impact of differences in market closing times.
+
+| Factor | Variance explained | Interpretation |
+|---|---:|---|
+| G1 | 69.6% | Broad moves in the same direction across all three curves |
+| G2 | 12.9% | USD moving against GBP, with relatively little EUR exposure |
+| G3 | 7.9% | Global slope movement, with front ends rising against longer maturities |
+| G4 | 5.2% | EUR level movements relative to USD and GBP |
+
+The first factor has positive loadings across all three currencies, with the largest in GBP and the smallest in EUR.
+
+The second factor captures a divergence between USD and GBP. For example, the USD 2y loading is +0.34, while the GBP 10y loading is -0.23.
+
+The fourth factor captures a distinct EUR level component, consistent with the ECB following a different policy path from the Federal Reserve and the Bank of England.
+
+### Variance explained by global factors
+
+| Currency | First factor | First 2 | First 3 | First 4 |
+|---|---:|---:|---:|---:|
 | USD | 63.8% | 84.6% | 93.9% | 95.3% |
 | EUR | 70.9% | 71.7% | 79.1% | 94.9% |
 | GBP | 74.0% | 87.0% | 93.9% | 96.1% |
 
-- 10y correlations: USD-EUR 0.65 daily and 0.73 weekly, USD-GBP 0.63 and 0.67, EUR-GBP 0.78 and 0.81. The daily figures are understated. USD today against EUR tomorrow is 0.14, against GBP tomorrow 0.15, while EUR today against USD tomorrow is 0.01. USD marks after the European close, so the afternoon's US move only reaches EUR and GBP rates the next day.
-- Global level alone explains 74% of GBP curve variance. The first two global factors explain only 72% of EUR: EUR has its own level factor (G4), consistent with the ECB moving on a different timetable from the Fed and the BoE.
+Two global factors explain 84.6% of USD variance and 87.0% of GBP variance, but only 71.7% of EUR variance. Adding the fourth factor increases the EUR figure to 94.9%.
 
-## 4. Weights from daily changes give the best hedge
+### Cross-currency correlations
 
-![hedge test](output/fig4_hedge_test.png)
+| 10y rate pair | Daily correlation | Weekly correlation |
+|---|---:|---:|
+| USD-EUR | 0.65 | 0.73 |
+| USD-GBP | 0.63 | 0.67 |
+| EUR-GBP | 0.78 | 0.81 |
 
-Method: at each month end, estimate the fly weights on the trailing two years, then hold them through the next month (Salomon Part I). Three weightings: 50/50 (body minus half of each wing), PCA on yield changes and PCA on yield levels. For PCA weights the fly is the third principal component of its three legs, scaled to a body weight of 1, which makes it uncorrelated with the first two. Hedge quality is the R-squared of daily out-of-sample fly changes on the average move across the curve (level) and the 2s30s change (slope).
+Daily correlations appear to understate some of the underlying relationships. USD 10y changes have a 0.14 correlation with the following day's EUR changes and 0.15 with the following day's GBP changes. The reverse correlation between EUR today and USD tomorrow is only 0.01.
 
-| | 50/50 | PCA changes | PCA levels |
-|---|---|---|---|
+This asymmetry is consistent with US rates reflecting market developments later in the day than European rates. It is one reason weekly data are more suitable for the cross-currency PCA.
+
+## 4. PCA weights for butterfly hedging
+
+![Out-of-sample butterfly hedge test](output/fig4_hedge_test.png)
+
+Butterflies express views on the shape of the curve around a central maturity. A key challenge is separating curvature exposure from broader movements in the overall level and slope of rates.
+
+Three weighting methods are compared:
+
+- **50/50:** the body rate minus half of each wing.
+- **PCA changes:** weights based on the third principal component of historical yield changes.
+- **PCA levels:** weights based on the third principal component of historical yield levels.
+
+At each month end, weights are estimated using the previous two years of data and held fixed throughout the following month. Hedge quality is measured using the out-of-sample R-squared from regressing daily fly changes against the average curve move and the 2s30s change.
+
+Lower R-squared values indicate less exposure to these two broad factors.
+
+| Butterfly | 50/50 | PCA changes | PCA levels |
+|---|---:|---:|---:|
 | USD 2s5s10s | 21.7% | 2.3% | 18.7% |
 | USD 5s10s30s | 34.0% | 4.6% | 14.4% |
 | EUR 2s5s10s | 29.0% | 6.1% | 14.3% |
@@ -85,17 +142,28 @@ Method: at each month end, estimate the fly weights on the trailing two years, t
 | GBP 2s5s10s | 20.0% | 1.3% | 3.7% |
 | GBP 5s10s30s | 6.6% | 3.0% | 2.6% |
 
-- Weights from changes give the lowest level and slope exposure in five of six flies and are within 0.4 points of the best in the sixth. That matches Salomon's advice to hedge with change-based components.
-- Every 50/50 fly moves with the level of rates: +0.02bp to +0.10bp of fly per bp of level move. A 50/50 fly is partly a duration trade.
+PCA weights estimated from changes give the lowest R-squared in five of the six butterflies. In the remaining case, GBP 5s10s30s, they are within 0.4 percentage points of the best result.
 
-## 5. The Salomon butterfly rule does not pay on these curves
+The difference is particularly clear in USD 5s10s30s, where the R-squared falls from 34.0% with 50/50 weights to 4.6% with PCA change-based weights.
 
-![backtest](output/fig5_salomon_backtest.png)
+All six conventional 50/50 butterflies retain some exposure to the overall level of rates, with a 1bp level move corresponding to a 0.02bp to 0.10bp change in the fly.
 
-Rule (Salomon Part II, base case): PCA weights from yield levels over the trailing two years. Enter when the fly is above its 97th or below its 3rd percentile over that window, receiving the body when it is high (body cheap) and paying it when low. Exit when it is back inside the 90th/10th percentile, or after 60 trading days. Weights and the reference window stay fixed for the life of the trade, and nothing uses data after the entry date. P&L is in bp of fly with the body DV01 set to 1, before costs.
+The results support using change-based PCA weights when the objective is to isolate a relative-value view on curve shape. Better hedging does not, by itself, guarantee better trading returns.
 
-| | Trades | Hit rate | Avg (bp) | Total (bp) | Worst (bp) | Timed out | Sharpe |
-|---|---|---|---|---|---|---|---|
+## 5. Backtesting the Salomon butterfly strategy
+
+![Salomon butterfly backtest](output/fig5_salomon_backtest.png)
+
+The backtest follows the PCA mean-reversion approach described in Salomon Smith Barney's research.
+
+Weights are estimated from yield levels over the previous two years. A trade is entered when the fly moves beyond its 97th or 3rd percentile over that window, taking the opposite position on the relative richness of the body. The position is closed when the fly returns inside the 90th or 10th percentile, or after 60 trading days.
+
+Weights and reference percentiles remain fixed throughout each trade. No data after the entry date are used. P&L is measured in basis points of fly with the body DV01 set to 1, before transaction costs.
+
+### Results by butterfly
+
+| Butterfly | Trades | Hit rate | Average P&L (bp) | Total P&L (bp) | Worst trade (bp) | Timed out | Sharpe |
+|---|---:|---:|---:|---:|---:|---:|---:|
 | USD 2s5s10s | 18 | 50% | -1.94 | -34.9 | -27.1 | 10 | -0.46 |
 | USD 5s10s30s | 19 | 79% | +0.86 | +16.4 | -10.6 | 5 | 0.38 |
 | EUR 2s5s10s | 10 | 50% | -5.69 | -56.9 | -33.5 | 5 | -0.96 |
@@ -103,49 +171,112 @@ Rule (Salomon Part II, base case): PCA weights from yield levels over the traili
 | GBP 2s5s10s | 31 | 81% | +0.84 | +26.1 | -10.9 | 8 | 0.28 |
 | GBP 5s10s30s | 22 | 73% | +1.30 | +28.7 | -8.6 | 8 | 0.33 |
 
-Pooled over all six flies:
+The GBP butterflies perform positively over the sample, while the USD and EUR 2s5s10s trades are particularly weak.
 
-| Weights | Trades | Hit rate | Avg (bp) | Avg if reverted (bp) | Avg if timed out (bp) | Timed out |
-|---|---|---|---|---|---|---|
+### Pooled results across all six butterflies
+
+| Weighting method | Trades | Hit rate | Average P&L (bp) | Average if reverted (bp) | Average if timed out (bp) | Timed out |
+|---|---:|---:|---:|---:|---:|---:|
 | PCA levels | 119 | 70% | -0.24 | +2.86 | -5.73 | 36% |
 | PCA changes | 112 | 65% | -0.52 | +2.78 | -5.64 | 39% |
 | 50/50 | 112 | 80% | +1.13 | +2.63 | -3.14 | 26% |
 
-- The payoff is many small wins and a few large losses. Trades that revert make about 3bp. Trades that do not revert lose about twice that.
-- 2022 explains the losses. The 31 PCA-level trades entered in 2022 averaged -2.13bp. USD and EUR 2s5s10s lost 38.9bp and 63.4bp on trades opened that year, more than their full-sample totals. Those were pay-body trades, and the 5y kept richening against the wings as hikes were priced. Outside 2022 the average trade made +0.42bp.
-- The 50/50 version looks better (+1.13bp a trade), but section 4 shows those flies carry 7% to 34% level and slope exposure. Part of that P&L is directional.
-- Salomon's alternatives do not rescue it. Across start/exit pairs of 3/10, 3/30 and 10/30 and holding limits of 60 and 120 days, the median Sharpe across the six flies is between -0.40 and 0.07, and at most three of six flies are positive in any setting.
+The level-based PCA strategy wins 70% of its trades but loses 0.24bp per trade on average. Trades that revert earn around 2.86bp, while those that time out lose 5.73bp. Around 36% of trades fail to revert within the holding period.
 
-## 6. Rich/cheap residuals are small and short-lived
+### The impact of 2022
 
-![residuals](output/fig6_residual_zscores.png)
+The losses are concentrated in trades entered during 2022. The 31 PCA-level trades opened that year averaged -2.13bp. USD and EUR 2s5s10s trades lost 38.9bp and 63.4bp respectively, more than their full-sample losses.
 
-Method (CS and Standard Chartered): each day, fit three principal components to the trailing year of yield levels and take each tenor's residual (actual minus three-factor fit). A z-score uses the residual's own trailing year.
+These were pay-body trades. As rate hike expectations changed, the 5y maturity continued to richen relative to the wings, extending the move against the positions.
 
-- Residuals have a standard deviation of 0.4bp to 1.9bp and half-lives of 6 to 26 trading days.
-- On the last date in the data no tenor is more than 1.5 standard deviations from fair value (largest: EUR 1y +1.49, USD 5y -1.41). At least one tenor sits beyond ±2 on 26% to 32% of days, so a 2-sigma residual is common.
-- These are April 2026 readings and say nothing about the curve today.
+Outside 2022, the average PCA-level trade made +0.42bp. This suggests the strategy's results are sensitive to the market regime and that historical extremes can persist when the curve is undergoing a sustained repricing.
+
+The 50/50 strategy produces a better average result of +1.13bp per trade, but the hedge analysis shows that conventional flies retain more exposure to level and slope. Some of this performance may therefore reflect directional risk rather than pure relative value.
+
+Alternative entry and exit percentile combinations, with 60-day and 120-day holding limits, do not materially change the overall conclusion. Across the six flies, the median Sharpe ranges from -0.40 to 0.07, and no configuration produces positive results across more than three flies.
+
+The results highlight a weakness of simple mean-reversion rules: frequent small wins can be outweighed by a smaller number of persistent adverse moves.
+
+## 6. Curve residuals and relative value
+
+![PCA residual z-scores](output/fig6_residual_zscores.png)
+
+The final analysis examines individual tenors relative to the curve implied by the first three principal components.
+
+For each day, three principal components are fitted to the previous year's yield levels. The residual is calculated as the observed rate minus its three-factor fitted value, then standardised using its own trailing one-year distribution.
+
+This provides a simple way to identify maturities that have moved unusually far from the broader curve structure, following the residual-based approaches discussed by Credit Suisse and Standard Chartered.
+
+Key results:
+
+- Residual standard deviations range from 0.4bp to 1.9bp.
+- Estimated half-lives range from 6 to 26 trading days.
+- At the end of the sample in April 2026, no tenor is more than 1.5 standard deviations from its fitted value.
+- The largest residuals are EUR 1y at +1.49 standard deviations and USD 5y at -1.41.
+- At least one tenor exceeds two standard deviations on 26% to 32% of days.
+
+A two-sigma residual is therefore relatively common in this dataset and should not automatically be treated as a trading signal. These readings describe the curve as of April 2026 and do not indicate current market conditions.
 
 ## Limitations
 
-- Data ends in April 2026 and the source is not documented in this repo yet.
-- SOFR swaps traded thinly in 2018 and ESTR was first published in October 2019, so the earliest USD and EUR data may be proxied or illiquid.
-- Fly P&L is before bid/offer on three legs in and out. The sample has 10 to 31 trades per fly, too few for confident Sharpe ratios.
-- Fly weights and both backtest rules were fixed before running them. The six-setting grid in section 5 is the only parameter search, and it is reported in full.
+- **Data provenance:** The curves are described as Bloomberg data, but the repository does not yet document their provenance in sufficient detail.
+- **Early observations:** SOFR swaps were relatively illiquid in 2018, while €STR was first published in October 2019. The earliest USD and EUR observations may include proxy data or reflect less liquid markets.
+- **Transaction costs:** Butterfly P&L excludes bid-offer costs across all three legs on entry and exit.
+- **Small sample:** Each butterfly has only 10 to 31 trades, limiting the conclusions that can be drawn from the reported Sharpe ratios.
+- **Regime dependence:** The 2022 losses show that mean-reversion assumptions can break down during sustained repricing.
+- **Parameter selection:** The alternative entry, exit and holding-period configurations are reported in full, although the parameter search is not exhaustive.
 
-## Reproduce
+The results are best treated as an investigation of curve structure, hedging and historical strategy behaviour rather than evidence of a ready-to-trade strategy.
+
+## Reproducing the analysis
+
+Install the required dependencies:
 
 ```bash
 pip install -r requirements.txt
-python src/load_data.py usd_sofr_curve.p eur_estr_curve.p gbp_sonia_curve.p   # pickles -> data/*.csv
-python src/swaps_pca.py      # charts, trade list and output/results.json
-python src/validate_gbp.py   # optional cross-check against the Bank of England curve
 ```
 
-Every number in this note is in `output/results.json`, `output/validation.json` or `output/salomon_trades.csv`.
+Convert the original curve files into CSV data:
 
-References (all in the Curvy-CUSIPs research/PCA folder)
+```bash
+python src/load_data.py \
+    usd_sofr_curve.p \
+    eur_estr_curve.p \
+    gbp_sonia_curve.p
+```
 
-- Baygun, Showers and Cherpelis, "Principles of Principal Components: A Fresh Look at Risk, Hedging, and Relative Value", Salomon Smith Barney, January 2000.
-- Pelata, Giannopoulos and Haworth, "PCA Unleashed", Credit Suisse Fixed Income Research, October 2012.
-- Lee, Davies and Fernandez, "Introducing a relative-value tool for swaps", Standard Chartered Rates Alert, August 2013.
+Run the main PCA analysis:
+
+```bash
+python src/swaps_pca.py
+```
+
+Optionally validate the GBP curve against the Bank of England data:
+
+```bash
+python src/validate_gbp.py
+```
+
+The main script generates the charts, trade list and `output/results.json`. Validation results are stored in `output/validation.json`, while individual backtest trades are recorded in `output/salomon_trades.csv`.
+
+### Repository outputs
+
+| File | Contents |
+|---|---|
+| `output/fig1_loadings_by_ccy.png` | PCA loadings by currency |
+| `output/fig2_rolling_slope_share.png` | Rolling slope variance share |
+| `output/fig3_global_factors.png` | Global PCA factors |
+| `output/fig4_hedge_test.png` | Out-of-sample butterfly hedge comparison |
+| `output/fig5_salomon_backtest.png` | Butterfly backtest results |
+| `output/fig6_residual_zscores.png` | Curve residual z-scores |
+| `output/results.json` | Main numerical results |
+| `output/validation.json` | Bank of England validation results |
+| `output/salomon_trades.csv` | Individual backtest trades |
+
+## References
+
+1. Baygun, Showers and Cherpelis, *Principles of Principal Components: A Fresh Look at Risk, Hedging, and Relative Value*, Salomon Smith Barney, January 2000.
+2. Pelata, Giannopoulos and Haworth, *PCA Unleashed*, Credit Suisse Fixed Income Research, October 2012.
+3. Lee, Davies and Fernandez, *Introducing a Relative-Value Tool for Swaps*, Standard Chartered Rates Alert, August 2013.
+
+The papers are collected in the [Curvy-CUSIPs PCA research directory](https://github.com/yieldcurvemonkey/Curvy-CUSIPs/tree/main/research/PCA).
